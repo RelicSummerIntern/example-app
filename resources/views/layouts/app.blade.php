@@ -27,6 +27,13 @@
                 </header>
             @endif
 
+            @if (session('success'))
+            <div class="bg-green-200 text-green-800 font-semibold p-3 rounded shadow-sm">
+                {{ session('success') }}
+            </div>
+
+            @endif
+
             <!-- Page Content -->
             <main>
                 {{ $slot }}
