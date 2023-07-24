@@ -28,10 +28,9 @@
             @endif
 
             @if (session('success'))
-            <div class="bg-green-200 text-green-800 font-semibold p-3 rounded shadow-sm">
+            <div class="bg-green-300 border p-4 font-semibold text-center">
                 {{ session('success') }}
             </div>
-
             @endif
 
             <!-- Page Content -->
