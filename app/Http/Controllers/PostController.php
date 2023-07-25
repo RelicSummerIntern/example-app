@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::get();
+        $posts = Post::orderBy('updated_at', 'desc')->get();
         return view('post.index', compact('posts'));
     }
 
@@ -37,14 +37,14 @@ class PostController extends Controller
 
     public function myPosts()
     {
-        $posts = Post::where('user_id', Auth::id())->get();
+        $posts = Post::where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get();
         return view('my-posts', compact('posts'));
     }
 
     public function edit($id)
     {
         $post = Post::findOrFail($id);
-        return view('posts.edit', compact('post'));
+        return view('post.edit', compact('post'));
     }
 
     public function update(Request $request, $id)

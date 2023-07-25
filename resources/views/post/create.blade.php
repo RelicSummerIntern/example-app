@@ -19,8 +19,8 @@
                         <textarea name="body" id="body" rows="6" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:border-indigo-500" required></textarea>
                     </div>
                     <div class="flex justify-end">
-                        <button type="submit" class="py-2 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600">投稿する</button>
-                        <a href="{{ route('myposts') }}" class="py-2 px-4 bg-gray-500 text-white rounded-md hover:bg-gray-600 ml-2 text-decoration-none">キャンセル</a>
+                        <button type="submit" class="py-2 px-4 btn btn-primary">投稿する</button>
+                        <a href="{{ route('post.index') }}" class="py-2 px-4 ml-4 btn btn-secondary">キャンセル</a>
                     </div>
                 </form>
             </div>
