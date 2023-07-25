@@ -12,7 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('board')" :active="request()->routeIs('board')">
+                    <x-nav-link :href="route('post.index')" :active="request()->routeIs('post.index')" class="text-decoration-none">
                         {{ __('掲示板') }}
                     </x-nav-link>
                 </div>
@@ -53,11 +53,11 @@
                 </x-dropdown>
                 @else
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                    <x-nav-link :href="route('register')" :active="request()->routeIs('register')" class="text-decoration-none">
                         {{ __('Register') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                    <x-nav-link :href="route('login')" :active="request()->routeIs('login')" class="text-decoration-none">
                         {{ __('Login') }}
                     </x-nav-link>
                 </div>
@@ -79,8 +79,8 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('board')" :active="request()->routeIs('board')">
-                {{ __('Board') }}
+            <x-responsive-nav-link :href="route('post.index')" :active="request()->routeIs('post.index')">
+                {{ __('Post Index') }}
             </x-responsive-nav-link>
         </div>
 

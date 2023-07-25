@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,21 +23,24 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
-Route::get('/board', function () {
-    return view('board');
-})->middleware(['auth', 'verified'])->name('board');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/post/index', [PostController::class, 'index'])->name('post.index');
+    Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
+    Route::post('/post/store', [PostController::class, 'store'])->name('post.store');
+    Route::get('/post/{id}', [PostController::class, 'edit'])->name('post.edit');
+    Route::patch('/post/{id}', [PostController::class, 'update'])->name('post.update');
+    Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('post.destroy');
+
+    Route::get('/myposts', [PostController::class, 'myPosts'])->name('myposts');
 });
 
-Route::get('/create-post', [PostController::class, 'create'])->name('create-post');
-Route::get('/my-posts', [PostController::class, 'myPosts'])->name('my-posts');
+
 
 require __DIR__.'/auth.php';
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
